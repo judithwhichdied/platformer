@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.psd filter=lfs diff=lfs merge=lfs -text
+PlatformerLibraryPackageCachecom.unity.burst@1.8.11.Runtime filter=lfs diff=lfs merge=lfs -text
+F:reposplatformer2D filter=lfs diff=lfs merge=lfs -text
+PlatformerLibraryPackageCachecom.unity.burst@1.8.11.Runtimelibburst-llvm-15.dylib filter=lfs diff=lfs merge=lfs -text
