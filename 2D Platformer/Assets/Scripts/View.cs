@@ -4,19 +4,28 @@ using UnityEngine;
 public class View : MonoBehaviour
 {
     [SerializeField] private Sensor_Bandit _groundSensor;
+    [SerializeField] private Attacker _attacker;
+
+    private EnemyAttacker _enemyAttacker;
 
     private Animator _animator;
     private Player _player;
+    private PlayerHealth _playerHealth;
 
     private const string AnimState = nameof(AnimState);
+    private const string Hurt = nameof(Hurt);
 
     private const string AnimGrounded = "Grounded";
     private const string AnimJump = "Jump";
+    private const string Attack = nameof(Attack);
+    private const string Death = nameof(Death);
 
     private void Awake()
     {
+        _playerHealth = GetComponent<PlayerHealth>();
         _animator = GetComponent<Animator>();
         _player = GetComponent<Player>();
+        _enemyAttacker = GetComponent<EnemyAttacker>();
     }
 
     private void Update()
@@ -26,6 +35,8 @@ public class View : MonoBehaviour
         AnimateMove();
 
         AnimateJump();
+
+        AnimateAttack();
     }
 
     private void Rotate(float velocityX)
@@ -76,5 +87,23 @@ public class View : MonoBehaviour
             _animator.SetInteger(AnimState, runState);
         else
             _animator.SetInteger(AnimState, idleState);
+    }
+
+    private void AnimateAttack()
+    {
+        if (_attacker.IsAttacked)
+            _animator.SetTrigger(Attack);
+    }
+
+    private void AnimateTakingDamage()
+    {
+        if (_enemyAttacker.PlayerDamaged)
+            _animator.SetTrigger(Hurt);
+    }
+
+    private void AnimateDeath()
+    {
+        if (_playerHealth.Health <= 0)
+            _animator.SetTrigger(Death);
     }
 }

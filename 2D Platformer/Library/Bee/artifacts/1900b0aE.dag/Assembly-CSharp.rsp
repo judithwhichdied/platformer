@@ -399,11 +399,17 @@
 "Assets/Scripts/Coin.cs"
 "Assets/Scripts/Collector.cs"
 "Assets/Scripts/Destroyer.cs"
+"Assets/Scripts/Enemy.cs"
+"Assets/Scripts/EnemyAttacker.cs"
 "Assets/Scripts/EnemyMover.cs"
+"Assets/Scripts/EnemySignaler.cs"
+"Assets/Scripts/EnemyTrigger.cs"
 "Assets/Scripts/Follower.cs"
+"Assets/Scripts/Healer.cs"
 "Assets/Scripts/Jumper.cs"
 "Assets/Scripts/Mover.cs"
 "Assets/Scripts/Player.cs"
+"Assets/Scripts/PlayerHealth.cs"
 "Assets/Scripts/View.cs"
 -langversion:9.0
 

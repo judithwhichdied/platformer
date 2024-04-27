@@ -7,8 +7,11 @@ public class EnemyMover : MonoBehaviour
     private const string AnimState = nameof(AnimState);
 
     [SerializeField] private Transform _waypointPrefab;
+    [SerializeField] private EnemyTrigger _trigger;
+    [SerializeField] private Player _player;
 
     private Animator _animator;
+    private Enemy _enemy;
 
     private List<Vector3> _waypoints = new List<Vector3>();
 
@@ -23,6 +26,7 @@ public class EnemyMover : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _enemy = GetComponent<Enemy>();
 
         _waypoint1Position = new Vector3(transform.position.x + _positionXScale, transform.position.y);
         _waypoint2Position = new Vector3(transform.position.x - _positionXScale, transform.position.y);
@@ -39,7 +43,20 @@ public class EnemyMover : MonoBehaviour
 
     private void Update()
     {
-        Patrol();
+        if (_enemy.Health > 0 && !_trigger.IsFound)
+        {
+            Patrol();
+        }
+    }
+
+    private void OnEnable()
+    {
+        _trigger.Triggered += Chase;
+    }
+
+    private void OnDisable()
+    {
+        _trigger.Triggered -= Chase;
     }
 
     private void Patrol()
@@ -67,6 +84,12 @@ public class EnemyMover : MonoBehaviour
             (transform.position, _waypoints[_currentWaypoint], _speed * Time.deltaTime);
 
         _animator.SetInteger(AnimState, animStateValue);
+    }
+
+    private void Chase()
+    {
+        transform.position = Vector2.MoveTowards
+            (transform.position, _player.gameObject.transform.position, _speed * Time.deltaTime);
     }
 
     private void Rotate(float angle)
