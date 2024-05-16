@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Healer : MonoBehaviour
 {
-    [SerializeField] private Destroyer _destroyer;
     [SerializeField] private PlayerHealth _playerHealth;
 
     private int _healPoints = 50;
@@ -12,6 +11,8 @@ public class Healer : MonoBehaviour
         if (collision.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth))
         {
             _playerHealth.Heal(_healPoints);
+
+            Destroy(gameObject);
         }
             
     }

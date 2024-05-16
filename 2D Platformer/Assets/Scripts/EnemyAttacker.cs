@@ -49,8 +49,8 @@ public class EnemyAttacker : MonoBehaviour
     {
         _animator.SetTrigger(Attack);
 
-        Invoke("ActivateHitBox", _delayActivation);
-        Invoke("DeactivateHitBox", _delayDeactivation);
+        Invoke(nameof(ActivateHitBox), _delayActivation);
+        Invoke(nameof(DeactivateHitBox), _delayDeactivation);
     }
 
     private void DealDamage(PlayerHealth player)

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent (typeof(BoxCollider2D))]
 public class Attacker : MonoBehaviour
 {
     private const string Hitbox = nameof(Hitbox);
@@ -23,8 +24,8 @@ public class Attacker : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             IsAttacked = true;
-            Invoke("ActivateHitBox", _delayActivation);
-            Invoke("DeactivateHitBox", _delayDeactivation);
+            Invoke(nameof(ActivateHitBox), _delayActivation);
+            Invoke(nameof(DeactivateHitBox), _delayDeactivation);
         }
         else
         {

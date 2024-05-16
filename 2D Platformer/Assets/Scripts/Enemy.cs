@@ -10,12 +10,12 @@ public class Enemy : MonoBehaviour
 
     public int Health { get; private set; } = 100;
 
-    void Awake()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
         if ( Health <= 0)
             Die();

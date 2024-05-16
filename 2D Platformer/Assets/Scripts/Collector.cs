@@ -1,25 +1,24 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Destroyer))]
 public class Collector : MonoBehaviour
 {
     private int _coinCount;
 
-    private Destroyer _destroyer;
+    private Coin _coin;
 
     private void Awake()
     {
-        _destroyer = GetComponent<Destroyer>();
+        _coin = GetComponent<Coin>();
     }
 
     private void OnEnable()
     {
-        _destroyer.CoinCollected += TakeCoin;
+        _coin.CoinCollected += TakeCoin;
     }
 
     private void OnDisable()
     {
-        _destroyer.CoinCollected -= TakeCoin;
+        _coin.CoinCollected -= TakeCoin;
     }
 
     private void TakeCoin()
