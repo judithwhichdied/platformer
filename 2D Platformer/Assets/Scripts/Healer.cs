@@ -13,7 +13,6 @@ public class Healer : MonoBehaviour
             _playerHealth.Heal(_healPoints);
 
             Destroy(gameObject);
-        }
-            
+        }    
     }
 }

@@ -8,6 +8,7 @@ public class Follower : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, _character.position, _speed * Time.deltaTime);
+        if (_character != null)
+            transform.position = Vector3.Lerp(transform.position, _character.position, _speed * Time.deltaTime);
     }
 }

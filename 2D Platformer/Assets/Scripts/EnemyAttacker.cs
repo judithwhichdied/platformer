@@ -13,7 +13,7 @@ public class EnemyAttacker : MonoBehaviour
 
     private float _delayActivation = 0.4f;
     private float _delayDeactivation = 0.6f;
-    private int _enemyDamage = 50;
+    private int _enemyDamage = 60;
 
     public bool PlayerDamaged { get; private set; } = false;
 

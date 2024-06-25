@@ -3,15 +3,6 @@ using UnityEngine;
 [RequireComponent (typeof(Animator))]
 public class View : MonoBehaviour
 {
-    [SerializeField] private Sensor_Bandit _groundSensor;
-    [SerializeField] private Attacker _attacker;
-
-    private EnemyAttacker _enemyAttacker;
-
-    private Animator _animator;
-    private Player _player;
-    private PlayerHealth _playerHealth;
-
     private const string AnimState = nameof(AnimState);
     private const string Hurt = nameof(Hurt);
 
@@ -20,12 +11,19 @@ public class View : MonoBehaviour
     private const string Attack = nameof(Attack);
     private const string Death = nameof(Death);
 
+    [SerializeField] private Sensor_Bandit _groundSensor;
+    [SerializeField] private Attacker _attacker;
+    [SerializeField] private EnemyAttacker _enemyAttacker;
+
+    private Animator _animator;
+    private Player _player;
+    private PlayerHealth _playerHealth;
+
     private void Awake()
     {
         _playerHealth = GetComponent<PlayerHealth>();
         _animator = GetComponent<Animator>();
         _player = GetComponent<Player>();
-        _enemyAttacker = GetComponent<EnemyAttacker>();
     }
 
     private void Update()
@@ -37,6 +35,16 @@ public class View : MonoBehaviour
         AnimateJump();
 
         AnimateAttack();
+
+        AnimateDeath();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<EnemyAttacker>(out EnemyAttacker enemyAttacker))
+        {
+            AnimateTakingDamage();
+        }
     }
 
     private void Rotate(float velocityX)
@@ -70,8 +78,7 @@ public class View : MonoBehaviour
         {
             _animator.SetBool(AnimGrounded, _groundSensor.IsGrounded);
         }
-
-        if (!_groundSensor.IsGrounded)
+        else
         {
             _animator.SetBool(AnimGrounded, _groundSensor.IsGrounded);
             _animator.SetTrigger(AnimJump);
@@ -103,7 +110,7 @@ public class View : MonoBehaviour
 
     private void AnimateDeath()
     {
-        if (_playerHealth.Health <= 0)
+        if (_playerHealth.CurrentHealth <= 0)
             _animator.SetTrigger(Death);
     }
 }

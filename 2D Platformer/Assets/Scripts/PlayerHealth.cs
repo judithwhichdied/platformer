@@ -2,28 +2,31 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int Health { get; private set; } = 100;
+    private int _maxHealth = 100;
+    private int _minHealth = 0;
+
+    public int CurrentHealth { get; private set; } = 100;
+
+    private void Update()
+    {
+        if (CurrentHealth <= 0)
+            Die();
+    }
 
     public void TakeDamage(int damage)
     {
-        Health -= damage;
+        CurrentHealth -= damage;
     }
 
     public void Heal(int healPoints)
     {
-        int maxHealth = 100;
+        CurrentHealth = Mathf.Clamp(CurrentHealth + healPoints, _minHealth, _maxHealth);
+    }
 
-        if (Health < maxHealth)
-        {
-            if ((Health + healPoints) > maxHealth)
-            {
-                Health = maxHealth;
-            }
-            else
-            {
-                Health += healPoints;
-            }
-        }
+    private void Die()
+    {
+        float delay = 1.5f;
 
+        Destroy(gameObject, delay);
     }
 }

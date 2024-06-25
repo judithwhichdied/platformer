@@ -88,6 +88,18 @@ public class EnemyMover : MonoBehaviour
 
     private void Chase()
     {
+        float angleLeft = 0f;
+        float angleRight = -180f;
+
+        if ( _player.gameObject.transform.position.x > transform.position.x)
+        {
+            Rotate(angleRight);
+        }
+        else
+        {
+            Rotate(angleLeft);
+        }
+
         transform.position = Vector2.MoveTowards
             (transform.position, _player.gameObject.transform.position, _speed * Time.deltaTime);
     }

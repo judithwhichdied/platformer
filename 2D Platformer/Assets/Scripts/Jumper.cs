@@ -4,11 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Jumper : MonoBehaviour
 {
-    [SerializeField] private float _jumpForce = 6.0f;
-
     private const string GroundSensorName = "GroundSensor";
     private const string PlayerName = "Player";
     private const string ColliderName = "Ground";
+
+    [SerializeField] private float _jumpForce = 6.0f;
 
     private Sensor_Bandit _groundSensor;
 

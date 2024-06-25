@@ -3,14 +3,15 @@ using UnityEngine;
 [RequireComponent (typeof(BoxCollider2D))]
 public class Attacker : MonoBehaviour
 {
-    private const string Hitbox = nameof(Hitbox);
-
     private BoxCollider2D _hitBox;
 
     public bool IsAttacked { get; private set; }
 
+    private bool _canAttack = true;
+
     private float _delayActivation = 0.4f;
     private float _delayDeactivation = 0.6f;
+    private float _attackCooldown = 1f;
 
     private int _playerDamage = 10;
 
@@ -21,11 +22,14 @@ public class Attacker : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && _canAttack)
         {
             IsAttacked = true;
             Invoke(nameof(ActivateHitBox), _delayActivation);
             Invoke(nameof(DeactivateHitBox), _delayDeactivation);
+
+            _canAttack = false;
+            Invoke(nameof(StopAttack), _attackCooldown);
         }
         else
         {
@@ -54,5 +58,10 @@ public class Attacker : MonoBehaviour
     private void Attack(Enemy enemy)
     {
         enemy.TakeDamage(_playerDamage);
+    }
+
+    private void StopAttack()
+    {
+        _canAttack = true;
     }
 }
