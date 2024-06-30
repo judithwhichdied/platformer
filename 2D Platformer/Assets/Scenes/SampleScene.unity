@@ -332,32 +332,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.4}
   m_EdgeRadius: 0
---- !u!1 &206117331 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1463392086428580, guid: 3248535f6a2562c489a1223a75951ef2, type: 3}
-  m_PrefabInstance: {fileID: 310400782}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &206117334 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9113234578136298043, guid: 3248535f6a2562c489a1223a75951ef2, type: 3}
   m_PrefabInstance: {fileID: 310400782}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206117331}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 721d3476bedcead459b6107cf1450fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &206117341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206117331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 304a7089383536a46b037d2906dd85fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &310400782
@@ -495,9 +478,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 177204625}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1463392086428580, guid: 3248535f6a2562c489a1223a75951ef2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 206117341}
     - targetCorrespondingSourceObject: {fileID: 1287205349689962, guid: 3248535f6a2562c489a1223a75951ef2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1860847798}
@@ -12103,7 +12083,7 @@ PrefabInstance:
     - target: {fileID: -2564641020391972071, guid: f10234e0c9609624aa9b199963a715a8, type: 3}
       propertyPath: _playerHealth
       value: 
-      objectReference: {fileID: 206117341}
+      objectReference: {fileID: 0}
     - target: {fileID: 2105851030497441381, guid: f10234e0c9609624aa9b199963a715a8, type: 3}
       propertyPath: m_Name
       value: Heal-Potion (1)
@@ -12271,7 +12251,7 @@ PrefabInstance:
     - target: {fileID: -2564641020391972071, guid: f10234e0c9609624aa9b199963a715a8, type: 3}
       propertyPath: _playerHealth
       value: 
-      objectReference: {fileID: 206117341}
+      objectReference: {fileID: 0}
     - target: {fileID: 2105851030497441381, guid: f10234e0c9609624aa9b199963a715a8, type: 3}
       propertyPath: m_Name
       value: Heal-Potion

@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
         CurrentHealth -= damage;
     }
 
-    public void Heal(int healPoints)
+    public void TakeHealing(int healPoints)
     {
         CurrentHealth = Mathf.Clamp(CurrentHealth + healPoints, _minHealth, _maxHealth);
     }

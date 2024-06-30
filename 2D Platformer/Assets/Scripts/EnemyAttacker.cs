@@ -1,16 +1,15 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyAttacker : MonoBehaviour
 {
     private const string Attack = "Attack";
+    private const string Hitbox = nameof(Hitbox);
 
     [SerializeField] private EnemySignaler _signaler;
     [SerializeField] private Animator _animator;
 
     private BoxCollider2D _hitBox;
-
-    private const string Hitbox = nameof(Hitbox);
-
     private float _delayActivation = 0.4f;
     private float _delayDeactivation = 0.6f;
     private int _enemyDamage = 60;
@@ -49,8 +48,8 @@ public class EnemyAttacker : MonoBehaviour
     {
         _animator.SetTrigger(Attack);
 
-        Invoke(nameof(ActivateHitBox), _delayActivation);
-        Invoke(nameof(DeactivateHitBox), _delayDeactivation);
+        StartCoroutine(nameof(ActivateHitbox));
+        StartCoroutine(nameof(DeactivateHitbox));
     }
 
     private void DealDamage(PlayerHealth player)
@@ -58,13 +57,21 @@ public class EnemyAttacker : MonoBehaviour
         player.TakeDamage(_enemyDamage);
     }
 
-    private void ActivateHitBox()
+    private IEnumerator ActivateHitbox()
     {
+        WaitForSeconds wait = new WaitForSeconds(_delayActivation);
+
+        yield return wait;
+
         _hitBox.enabled = true;
     }
 
-    private void DeactivateHitBox()
+    private IEnumerator DeactivateHitbox()
     {
+        WaitForSeconds wait = new WaitForSeconds(_delayDeactivation);
+
+        yield return wait;
+
         _hitBox.enabled = false;
     }
 }

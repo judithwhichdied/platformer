@@ -13,12 +13,12 @@ public class Collector : MonoBehaviour
 
     private void OnEnable()
     {
-        _coin.CoinCollected += TakeCoin;
+        _coin.Collected += TakeCoin;
     }
 
     private void OnDisable()
     {
-        _coin.CoinCollected -= TakeCoin;
+        _coin.Collected -= TakeCoin;
     }
 
     private void TakeCoin()

@@ -12,14 +12,10 @@ public class EnemyMover : MonoBehaviour
 
     private Animator _animator;
     private Enemy _enemy;
-
     private List<Vector3> _waypoints = new List<Vector3>();
-
     private int _currentWaypoint = 0;
     private int _positionXScale = 5;
-
     private float _speed = 3f;
-
     private Vector3 _waypoint1Position;
     private Vector3 _waypoint2Position;
 

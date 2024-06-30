@@ -11,9 +11,7 @@ public class Jumper : MonoBehaviour
     [SerializeField] private float _jumpForce = 6.0f;
 
     private Sensor_Bandit _groundSensor;
-
     private Rigidbody2D _player;
-
     private int _playerObject, _collideObject;
 
     private void Awake()

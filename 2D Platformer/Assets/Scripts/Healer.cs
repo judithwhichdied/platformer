@@ -10,7 +10,7 @@ public class Healer : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth))
         {
-            _playerHealth.Heal(_healPoints);
+            _playerHealth.TakeHealing(_healPoints);
 
             Destroy(gameObject);
         }    

@@ -1,11 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof(BoxCollider2D))]
 public class Attacker : MonoBehaviour
 {
     private BoxCollider2D _hitBox;
-
-    public bool IsAttacked { get; private set; }
 
     private bool _canAttack = true;
 
@@ -15,6 +15,10 @@ public class Attacker : MonoBehaviour
 
     private int _playerDamage = 10;
 
+    private KeyCode _leftMouseButton = KeyCode.Mouse0;
+
+    public bool IsAttacked { get; private set; }
+
     private void Awake()
     {
         _hitBox = GetComponent<BoxCollider2D>();
@@ -22,14 +26,14 @@ public class Attacker : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && _canAttack)
+        if (Input.GetKeyDown(_leftMouseButton) && _canAttack)
         {
             IsAttacked = true;
-            Invoke(nameof(ActivateHitBox), _delayActivation);
-            Invoke(nameof(DeactivateHitBox), _delayDeactivation);
+            StartCoroutine(nameof(ActivateHitbox));
+            StartCoroutine(nameof(DeactivateHitbox));
 
             _canAttack = false;
-            Invoke(nameof(StopAttack), _attackCooldown);
+            StartCoroutine(nameof(StopAttacking));
         }
         else
         {
@@ -45,23 +49,35 @@ public class Attacker : MonoBehaviour
         }
     }
 
-    private void ActivateHitBox()
-    {
-        _hitBox.enabled = true;
-    }
-
-    private void DeactivateHitBox()
-    {
-        _hitBox.enabled = false;
-    }
-
     private void Attack(Enemy enemy)
     {
         enemy.TakeDamage(_playerDamage);
     }
 
-    private void StopAttack()
+    private IEnumerator ActivateHitbox()
     {
+        WaitForSeconds wait = new WaitForSeconds(_delayActivation);
+
+        yield return wait;
+
+        _hitBox.enabled = true;
+    }
+
+    private IEnumerator DeactivateHitbox()
+    {
+        WaitForSeconds wait = new WaitForSeconds(_delayDeactivation);
+
+        yield return wait;
+
+        _hitBox.enabled = false;
+    }
+
+    private IEnumerator StopAttacking()
+    {
+        WaitForSeconds wait = new WaitForSeconds(_attackCooldown);
+
+        yield return wait;
+
         _canAttack = true;
     }
 }

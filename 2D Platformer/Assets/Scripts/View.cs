@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent (typeof(Animator))]
+[RequireComponent (typeof(Animator), typeof(Player), typeof(PlayerHealth))]
 public class View : MonoBehaviour
 {
     private const string AnimState = nameof(AnimState);
