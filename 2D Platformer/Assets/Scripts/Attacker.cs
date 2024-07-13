@@ -43,13 +43,13 @@ public class Attacker : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemy))
+        if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))
         {
             Attack(enemy);
         }
     }
 
-    private void Attack(Enemy enemy)
+    private void Attack(EnemyHealth enemy)
     {
         enemy.TakeDamage(_playerDamage);
     }

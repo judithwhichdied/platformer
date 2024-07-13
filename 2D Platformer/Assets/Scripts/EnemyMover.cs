@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Animator), typeof(EnemyHealth))]
 public class EnemyMover : MonoBehaviour
 {
     private const string AnimState = nameof(AnimState);
@@ -11,7 +11,7 @@ public class EnemyMover : MonoBehaviour
     [SerializeField] private Player _player;
 
     private Animator _animator;
-    private Enemy _enemy;
+    private EnemyHealth _enemy;
     private List<Vector3> _waypoints = new List<Vector3>();
     private int _currentWaypoint = 0;
     private int _positionXScale = 5;
@@ -22,7 +22,7 @@ public class EnemyMover : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _enemy = GetComponent<Enemy>();
+        _enemy = GetComponent<EnemyHealth>();
 
         _waypoint1Position = new Vector3(transform.position.x + _positionXScale, transform.position.y);
         _waypoint2Position = new Vector3(transform.position.x - _positionXScale, transform.position.y);
@@ -39,7 +39,7 @@ public class EnemyMover : MonoBehaviour
 
     private void Update()
     {
-        if (_enemy.Health > 0 && !_trigger.IsFound)
+        if (_enemy.CurrentHealth > 0 && !_trigger.IsFound)
         {
             Patrol();
         }

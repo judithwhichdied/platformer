@@ -1,32 +1,24 @@
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : Health
 {
-    private int _maxHealth = 100;
-    private int _minHealth = 0;
-
-    public int CurrentHealth { get; private set; } = 100;
-
-    private void Update()
+    protected override void Update()
     {
-        if (CurrentHealth <= 0)
-            Die();
+        base.Update();
     }
 
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
-        CurrentHealth -= damage;
+        base.TakeDamage(damage);
     }
 
-    public void TakeHealing(int healPoints)
+    public override void TakeHealing(int healPoints)
     {
-        CurrentHealth = Mathf.Clamp(CurrentHealth + healPoints, _minHealth, _maxHealth);
+        base.TakeHealing(healPoints);
     }
 
-    private void Die()
+    protected override void Die()
     {
-        float delay = 1.5f;
-
-        Destroy(gameObject, delay);
+        base.Die();
     }
 }
