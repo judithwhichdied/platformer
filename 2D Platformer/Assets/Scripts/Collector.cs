@@ -4,21 +4,13 @@ public class Collector : MonoBehaviour
 {
     private int _coinCount;
 
-    private Coin _coin;
-
-    private void Awake()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        _coin = GetComponent<Coin>();
-    }
-
-    private void OnEnable()
-    {
-        _coin.Collected += TakeCoin;
-    }
-
-    private void OnDisable()
-    {
-        _coin.Collected -= TakeCoin;
+        if (collision.gameObject.TryGetComponent<Coin>(out Coin coin))
+        {
+            Destroy(coin.gameObject);
+            _coinCount++;
+        }
     }
 
     private void TakeCoin()

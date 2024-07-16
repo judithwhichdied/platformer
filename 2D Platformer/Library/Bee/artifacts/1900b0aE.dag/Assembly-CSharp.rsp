@@ -397,6 +397,7 @@
 "Assets/Cainos/Common/Script/Utils/SecondOrderDynamics.cs"
 "Assets/MenuScripts/CloudMover.cs"
 "Assets/MenuScripts/Scaler.cs"
+"Assets/Scripts/AbilityCaster.cs"
 "Assets/Scripts/Attacker.cs"
 "Assets/Scripts/Coin.cs"
 "Assets/Scripts/Collector.cs"
