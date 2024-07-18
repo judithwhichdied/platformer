@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ButtonDamager : MonoBehaviour
 {
-    [SerializeField] private PlayerHealth _playerHealth;
+    [SerializeField] private Health _playerHealth;
     [SerializeField] private Button _button;
 
     public event Action<int> Damaged;

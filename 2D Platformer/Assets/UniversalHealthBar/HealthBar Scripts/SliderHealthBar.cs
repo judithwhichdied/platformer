@@ -7,8 +7,6 @@ public class SliderHealthBar : MonoBehaviour
     [SerializeField] protected Health _health;
     [SerializeField] protected Slider _bar;
 
-    public event Action HealthChanged;
-
     protected virtual void Start()
     {
         _bar.minValue = _health.MinHealth;
@@ -16,22 +14,17 @@ public class SliderHealthBar : MonoBehaviour
         _bar.value = _bar.maxValue;
     }
 
-    protected virtual void Update()
-    {
-        HealthChanged?.Invoke();
-    }
-
     protected virtual void OnEnable()
     {
-        HealthChanged += FillBar;
+        _health.Changed += FillBar;
     }
 
     protected virtual void OnDisable()
     {
-        HealthChanged -= FillBar;
+        _health.Changed -= FillBar;
     }
 
-    private void FillBar()
+    protected virtual void FillBar()
     {
         float filledArea = _health.CurrentHealth;
 

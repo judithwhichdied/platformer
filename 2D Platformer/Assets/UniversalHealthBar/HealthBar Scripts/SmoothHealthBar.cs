@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SmoothHealthBar : SliderHealthBar
@@ -7,25 +8,33 @@ public class SmoothHealthBar : SliderHealthBar
         base.Start();
     }
 
-    protected override void Update()
-    {
-        base.Update();  
-    }
-
     protected override void OnEnable()
     {
-        HealthChanged += Fill;
+        base.OnEnable();
     }
 
     protected override void OnDisable()
     {
-        HealthChanged -= Fill;
+        base.OnDisable();
     }
 
-    private void Fill()
+    protected override void FillBar()
     {
-        float step = _bar.maxValue / 2;
+        StartCoroutine(SmoothChanging());
+    }
 
-        _bar.value = Mathf.MoveTowards(_bar.value, _health.CurrentHealth, step * Time.deltaTime);
+    private IEnumerator SmoothChanging()
+    {
+        float step = _bar.maxValue;
+        float delay = 0.01f;
+
+        WaitForSeconds wait = new WaitForSeconds(delay);
+
+        while (_bar.value != _health.CurrentHealth)
+        {
+            _bar.value = Mathf.MoveTowards(_bar.value, _health.CurrentHealth, step * Time.deltaTime);
+
+            yield return wait;
+        }
     }
 }

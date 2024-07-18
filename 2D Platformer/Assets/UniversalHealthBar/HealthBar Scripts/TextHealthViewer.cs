@@ -4,7 +4,7 @@ using UnityEngine;
 public class TextHealthViewer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField] private PlayerHealth _playerHealth;
+    [SerializeField] private Health _playerHealth;
 
     private void Update()
     {
