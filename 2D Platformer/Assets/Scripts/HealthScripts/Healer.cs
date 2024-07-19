@@ -3,16 +3,22 @@ using UnityEngine;
 public class Healer : MonoBehaviour
 {
     [SerializeField] private Health _player;
+    [SerializeField] private Collector _collector;
 
     private int _healPoints = 50;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnEnable()
     {
-        if (collision.gameObject.TryGetComponent<Health>(out Health player))
-        {
-            _player.TakeHealing(_healPoints);
+        _collector.HealTaked += Heal;
+    }
 
-            Destroy(gameObject);
-        }    
+    private void OnDisable()
+    {
+        _collector.HealTaked -= Heal; 
+    }
+
+    private void Heal()
+    {
+        _player.TakeHealing(_healPoints);
     }
 }

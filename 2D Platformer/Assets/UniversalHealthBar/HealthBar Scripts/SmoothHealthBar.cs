@@ -32,7 +32,7 @@ public class SmoothHealthBar : SliderHealthBar
 
         while (_bar.value != _health.CurrentHealth)
         {
-            _bar.value = Mathf.MoveTowards(_bar.value, _health.CurrentHealth, step * Time.deltaTime);
+            _bar.value = Mathf.MoveTowards(_bar.value, _health.CurrentHealth / _health.MaxHealth, step * Time.deltaTime);
 
             yield return wait;
         }

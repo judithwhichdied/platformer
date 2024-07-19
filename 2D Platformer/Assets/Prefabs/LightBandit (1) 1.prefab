@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 60582632799684292}
   - component: {fileID: 4773191789492158067}
   - component: {fileID: 1787702942735135969}
-  - component: {fileID: 9039145123538262370}
+  - component: {fileID: 7955588363460307678}
   m_Layer: 0
   m_Name: LightBandit (1) 1
   m_TagString: Player
@@ -490,7 +490,7 @@ MonoBehaviour:
   _waypointPrefab: {fileID: 3268042962414789376, guid: 952424e25b010754ebc59bb4f6fcd7eb, type: 3}
   _trigger: {fileID: 1201123837917802657}
   _player: {fileID: 697575908149795915, guid: eb14c5b34aad26840a3db8d6c82a4c50, type: 3}
---- !u!114 &9039145123538262370
+--- !u!114 &7955588363460307678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9173251954863641780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a57c3cc5ef5f3e6468e02bf0187efbf3, type: 3}
+  m_Script: {fileID: 11500000, guid: d4dc0b32d18bd0e46b0e0374c559cc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1586047484030641650
@@ -618,10 +618,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3702145012837171500, guid: 48a6cfe92a764f9439d658a94541ad8a, type: 3}
-      propertyPath: _health
-      value: 
-      objectReference: {fileID: 9039145123538262370}
     - target: {fileID: 7323226548131696467, guid: 48a6cfe92a764f9439d658a94541ad8a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

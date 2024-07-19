@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private float _minDamage = 0.1f;
-    private float _maxDamage = 99.9f;
-
     public event Action Changed;
 
     public float MinHealth { get; protected set; } = 0;
@@ -14,17 +11,23 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        CurrentHealth -= Mathf.Clamp(damage, _minDamage, _maxDamage);
-        Changed?.Invoke();
+        if (damage >= 0)
+        {
+            CurrentHealth = Mathf.Clamp(CurrentHealth - damage, MinHealth, MaxHealth);           
+            Changed?.Invoke();
 
-        if (CurrentHealth <= 0)
-            Die();
+            if (CurrentHealth <= 0)
+                Die();
+        }
     }
 
     public void TakeHealing(float healPoints)
     {
-        CurrentHealth = Mathf.Clamp(CurrentHealth + healPoints, MinHealth, MaxHealth);
-        Changed?.Invoke();
+        if (healPoints >= 0)
+        {
+            CurrentHealth = Mathf.Clamp(CurrentHealth + healPoints, MinHealth, MaxHealth);
+            Changed?.Invoke();
+        }
     }
 
     private void Die()

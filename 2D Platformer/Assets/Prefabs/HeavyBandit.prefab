@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1516719120830473683}
   - component: {fileID: 7512506949489524497}
   - component: {fileID: 5703813747166166907}
-  - component: {fileID: 8584107460501076587}
+  - component: {fileID: 6183228851578549677}
   m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000007450581}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8584107460501076587
+--- !u!114 &6183228851578549677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,11 +130,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1435478897474526006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bac97017dfa3f74b9d49d8e3abe647d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5af5957f569099e41ac16d8b61329018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 697575908149795915}
-  _playerHealth: {fileID: 4962807920295375510}
+  _player: {fileID: 0}
+  _input: {fileID: 0}
+  _cooldownView: {fileID: 0}
 --- !u!1 &2517204740100533436
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +148,7 @@ GameObject:
   - component: {fileID: 1793206444698999470}
   - component: {fileID: 6260155793450938398}
   - component: {fileID: 5669639492101182597}
+  - component: {fileID: 2046780061354858123}
   m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
@@ -237,6 +239,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2046780061354858123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2517204740100533436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b1e8c150860134ca10a5eb1b6a4273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7281691667833248475
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,8 +315,8 @@ GameObject:
   - component: {fileID: 7642316760642623990}
   - component: {fileID: 697575908149795915}
   - component: {fileID: 3207713931158518556}
-  - component: {fileID: 4962807920295375510}
   - component: {fileID: 9200552327997926837}
+  - component: {fileID: 361331791017175810}
   m_Layer: 7
   m_Name: HeavyBandit
   m_TagString: Player
@@ -528,18 +542,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 6
---- !u!114 &4962807920295375510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7298607429230552100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 304a7089383536a46b037d2906dd85fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &9200552327997926837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,6 +552,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fda9f4d6f3d18246945264c68133737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &361331791017175810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298607429230552100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4dc0b32d18bd0e46b0e0374c559cc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8540223789598894196
@@ -811,10 +825,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3702145012837171500, guid: 48a6cfe92a764f9439d658a94541ad8a, type: 3}
-      propertyPath: _playerHealth
-      value: 
-      objectReference: {fileID: 4962807920295375510}
     - target: {fileID: 7323226548131696467, guid: 48a6cfe92a764f9439d658a94541ad8a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

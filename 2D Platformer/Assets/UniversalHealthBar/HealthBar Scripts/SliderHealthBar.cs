@@ -9,9 +9,7 @@ public class SliderHealthBar : MonoBehaviour
 
     protected virtual void Start()
     {
-        _bar.minValue = _health.MinHealth;
-        _bar.maxValue = _health.MaxHealth;
-        _bar.value = _bar.maxValue;
+        _bar.value = _health.CurrentHealth / _health.MaxHealth;
     }
 
     protected virtual void OnEnable()
@@ -26,7 +24,7 @@ public class SliderHealthBar : MonoBehaviour
 
     protected virtual void FillBar()
     {
-        float filledArea = _health.CurrentHealth;
+        float filledArea = _health.CurrentHealth / _health.MaxHealth;
 
         _bar.value = filledArea;
     }
