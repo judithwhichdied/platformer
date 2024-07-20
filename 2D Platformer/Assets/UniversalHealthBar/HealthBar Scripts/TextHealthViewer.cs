@@ -1,27 +1,17 @@
 using TMPro;
 using UnityEngine;
 
-public class TextHealthViewer : MonoBehaviour
+public class TextHealthViewer : SliderHealthBar
 {
     [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField] private Health _playerHealth;
 
     private void Awake()
     {
-        ShowHealth();
+        FillBar();
     }
-    private void OnEnable()
+    
+    protected override void FillBar()
     {
-        _playerHealth.Changed += ShowHealth;
-    }
-
-    private void OnDisable()
-    {
-        _playerHealth.Changed -= ShowHealth;
-    }
-
-    private void ShowHealth()
-    {
-        _text.text = $"Health: {_playerHealth.CurrentHealth} / {_playerHealth.MaxHealth}";
+        _text.text = $"Health: {_health.CurrentHealth} / {_health.MaxHealth}";
     }
 }
