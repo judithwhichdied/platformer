@@ -10,7 +10,7 @@ public class Jumper : MonoBehaviour
 
     [SerializeField] private float _jumpForce = 6.0f;
 
-    private Sensor_Bandit _groundSensor;
+    private GroundDetector _groundSensor;
     private Rigidbody2D _player;
     private int _playerObject, _collideObject;
 
@@ -18,7 +18,7 @@ public class Jumper : MonoBehaviour
     {
         _player = GetComponent<Rigidbody2D>();
 
-        _groundSensor = transform.Find(GroundSensorName).GetComponent<Sensor_Bandit>();
+        _groundSensor = transform.Find(GroundSensorName).GetComponent<GroundDetector>();
 
         _playerObject = LayerMask.NameToLayer(PlayerName);
         _collideObject = LayerMask.NameToLayer(ColliderName);

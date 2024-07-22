@@ -9,9 +9,9 @@ public class AbilityCaster : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _cooldownView;
 
     private float _duration = 6f;
-    private float _stealingValue = 0.2f;
+    private float _stealingValue = 10f;
 
-    private bool _isActive = false;
+    private bool _abilityActive = false;
 
     private void Awake()
     {
@@ -30,13 +30,11 @@ public class AbilityCaster : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (_isActive)
+        if (_abilityActive)
         {
-            if (collision.gameObject.TryGetComponent(out Health enemy) && collision.gameObject.TryGetComponent(out Enemy en))
+            if (collision.gameObject.TryGetComponent(out Health enemy) && collision.gameObject.TryGetComponent(out Enemy Enemy))
             {
                 StealLife(enemy);
-
-                
             }
         }
     }
@@ -45,7 +43,7 @@ public class AbilityCaster : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        if (_isActive == false)
+        if (_abilityActive == false)
         {
             StartCoroutine(StartCounting());
         }
@@ -53,8 +51,8 @@ public class AbilityCaster : MonoBehaviour
 
     private void StealLife(Health enemy)
     {
-        enemy.TakeDamage(_stealingValue);
-        _player.TakeHealing(_stealingValue);
+        enemy.TakeDamage(_stealingValue * Time.fixedDeltaTime);
+        _player.TakeHealing(_stealingValue * Time.fixedDeltaTime);
     }
 
     private IEnumerator StartCounting()
@@ -63,7 +61,7 @@ public class AbilityCaster : MonoBehaviour
 
         WaitForSeconds wait = new WaitForSeconds(delay);
 
-        _isActive = true;
+        _abilityActive = true;
 
         for (float i = _duration; i > 0; i--)
         {
@@ -72,7 +70,7 @@ public class AbilityCaster : MonoBehaviour
             yield return wait;
         }
 
-        _isActive = false;
+        _abilityActive = false;
         gameObject.SetActive(false);
     }
 }

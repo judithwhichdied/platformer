@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Sensor_Bandit : MonoBehaviour 
+public class GroundDetector : MonoBehaviour 
 {
     [SerializeField] private LayerMask _layerMask;
 

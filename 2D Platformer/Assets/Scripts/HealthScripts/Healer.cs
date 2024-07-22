@@ -5,7 +5,7 @@ public class Healer : MonoBehaviour
     [SerializeField] private Health _player;
     [SerializeField] private Collector _collector;
 
-    private int _healPoints = 50;
+    private float _healPoints = 50f;
 
     private void OnEnable()
     {

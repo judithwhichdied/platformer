@@ -11,7 +11,7 @@ public class View : MonoBehaviour
     private const string Attack = nameof(Attack);
     private const string Death = nameof(Death);
 
-    [SerializeField] private Sensor_Bandit _groundSensor;
+    [SerializeField] private GroundDetector _groundSensor;
     [SerializeField] private Attacker _attacker;
     [SerializeField] private EnemyAttacker _enemyAttacker;
 

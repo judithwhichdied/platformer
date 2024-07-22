@@ -4,7 +4,7 @@ using UnityEngine;
 public class Mover : MonoBehaviour
 {
     [SerializeField] private float _speed = 4.0f;
-    [SerializeField] private Sensor_Bandit _groundSensor;
+    [SerializeField] private GroundDetector _groundSensor;
 
     private Player _player;
     private Rigidbody2D _body2D;
