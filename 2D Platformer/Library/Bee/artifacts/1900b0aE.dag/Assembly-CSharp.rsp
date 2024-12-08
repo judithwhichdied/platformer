@@ -414,6 +414,7 @@
 "Assets/Scripts/PauseMenuScripts/PauseMenu.cs"
 "Assets/Scripts/PauseMenuScripts/VolumeChanger.cs"
 "Assets/Scripts/PlayerScripts/AbilityCaster.cs"
+"Assets/Scripts/PlayerScripts/AbilityView.cs"
 "Assets/Scripts/PlayerScripts/Collector.cs"
 "Assets/Scripts/PlayerScripts/Player.cs"
 "Assets/Scripts/PlayerScripts/View.cs"

@@ -1,76 +1,107 @@
 using UnityEngine;
 using System.Collections;
-using TMPro;
+using System;
 
 public class AbilityCaster : MonoBehaviour
 {
     [SerializeField] private Health _player;
     [SerializeField] private Player _input;
-    [SerializeField] private TextMeshProUGUI _cooldownView;
 
-    private float _duration = 6f;
+    private SpriteRenderer _renderer;
+
     private float _stealingValue = 10f;
 
-    private bool _abilityActive = false;
+    public event Action OnCoolDown;
+    public event Action IsActive;
+
+    private bool _coroutineActive = false;
+
+    public bool AbilityOnCoolDown { get; private set; } = false;
+    public bool CanActivate { get; private set; } = true;
+    public float Duration { get; private set; } = 6f;
+    public float CoolDown { get; private set; } = 4f;
 
     private void Awake()
     {
-        gameObject.SetActive(false);
+        _renderer = GetComponent<SpriteRenderer>();
+
+        _renderer.enabled = false; 
     }
 
     private void OnEnable()
     {
-        _input.KeyPressed -= CastAbility;
+        _input.AbilityCasted += CastAbility;
     }
 
     private void OnDisable()
     {
-        _input.KeyPressed += CastAbility;
+        _input.AbilityCasted -= CastAbility;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (_abilityActive)
+        if (collision.gameObject.TryGetComponent(out Health enemy) && collision.gameObject.TryGetComponent(out Enemy _) && _renderer.enabled)
         {
-            if (collision.gameObject.TryGetComponent(out Health enemy) && collision.gameObject.TryGetComponent(out Enemy Enemy))
-            {
-                StealLife(enemy);
-            }
+            StartCoroutine(StealLife(enemy));
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Health enemy) && collision.gameObject.TryGetComponent(out Enemy _) && _renderer.enabled)
+        {
+            StopCoroutine(StealLife(enemy));
         }
     }
 
     private void CastAbility()
     {
-        gameObject.SetActive(true);
-
-        if (_abilityActive == false)
+        if (AbilityOnCoolDown == false && CanActivate)
         {
+            _renderer.enabled = true;
+
+            CanActivate = false;
+
             StartCoroutine(StartCounting());
         }
     }
 
-    private void StealLife(Health enemy)
+    private IEnumerator StealLife(Health enemy)
     {
-        enemy.TakeDamage(_stealingValue * Time.fixedDeltaTime);
-        _player.TakeHealing(_stealingValue * Time.fixedDeltaTime);
-    }
+        if (_coroutineActive)
+            yield break;
 
-    private IEnumerator StartCounting()
-    {
+        _coroutineActive = true;
+
         float delay = 1f;
 
         WaitForSeconds wait = new WaitForSeconds(delay);
 
-        _abilityActive = true;
-
-        for (float i = _duration; i > 0; i--)
+        if (enemy.CurrentHealth > 0)
         {
-            _cooldownView.text = $"{i}";
-
-            yield return wait;
+            enemy.TakeDamage(_stealingValue);
+            _player.TakeHealing(_stealingValue);
         }
 
-        _abilityActive = false;
-        gameObject.SetActive(false);
+        yield return wait;
+
+        _coroutineActive = false;
     }
+
+    private IEnumerator StartCounting()
+    {
+        IsActive?.Invoke();
+
+        yield return new WaitForSecondsRealtime(Duration);
+
+        AbilityOnCoolDown = true;
+        OnCoolDown?.Invoke();
+
+        _renderer.enabled = false;
+
+        yield return new WaitForSecondsRealtime(CoolDown);
+
+        AbilityOnCoolDown = false;
+        CanActivate = true;
+    }   
 }

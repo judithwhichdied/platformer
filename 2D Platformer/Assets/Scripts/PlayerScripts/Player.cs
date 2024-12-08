@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
     private KeyCode _vampiricAbilityKey = KeyCode.F;
 
-    public event Action KeyPressed;
+    public event Action AbilityCasted;
 
     public float InputX { get; private set; }
 
@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(_vampiricAbilityKey))
         {
-            KeyPressed?.Invoke();
+            AbilityCasted?.Invoke();
         }
     }
 }

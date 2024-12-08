@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638466263746903784
-    m_Hash: 1680205303
+      ticks: 638692820269241724
+    m_Hash: 1940711691
   m_LockFileStatus:
     m_FilePath: F:/repos/platformer/2D Platformer/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638466263746943784
-    m_Hash: 1911365711
+      ticks: 638692820269351726
+    m_Hash: 3096645250
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -115,9 +115,19 @@ m_ResolvedPackages:
     - 2.1.0
     - 2.2.0
     - 2.3.1
+    - 2.4.3
+    - 2.4.4
+    - 2.5.1
+    - 2.5.2
+    - 2.6.0
     compatible:
     - 2.2.0
     - 2.3.1
+    - 2.4.3
+    - 2.4.4
+    - 2.5.1
+    - 2.5.2
+    - 2.6.0
     recommended: 2.2.0
     deprecated: []
   dependencies: []
@@ -214,10 +224,14 @@ m_ResolvedPackages:
     version: 9.0.4
   - name: com.unity.2d.common
     version: 8.0.2
-  - name: com.unity.2d.sprite
-    version: 1.0.0
+  - name: com.unity.burst
+    version: 1.8.11
   - name: com.unity.mathematics
     version: 1.2.6
+  - name: com.unity.2d.sprite
+    version: 1.0.0
+  - name: com.unity.modules.animation
+    version: 1.0.0
   - name: com.unity.modules.uielements
     version: 1.0.0
   - name: com.unity.modules.ui
@@ -226,10 +240,6 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
-  - name: com.unity.modules.animation
-    version: 1.0.0
-  - name: com.unity.burst
-    version: 1.8.11
   - name: com.unity.collections
     version: 1.2.4
   - name: com.unity.test-framework
@@ -345,10 +355,14 @@ m_ResolvedPackages:
     - 3.0.26
     - 3.0.27
     - 3.0.28
+    - 3.0.31
+    - 3.0.34
     compatible:
     - 3.0.27
     - 3.0.28
-    recommended: 3.0.28
+    - 3.0.31
+    - 3.0.34
+    recommended: 3.0.34
     deprecated: []
   dependencies:
   - name: com.unity.ext.nunit
@@ -515,6 +529,7 @@ m_ResolvedPackages:
     - 3.0.1
     - 3.0.2
     - 3.0.3
+    - 3.0.4
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     - 4.0.0-pre.3
@@ -523,13 +538,16 @@ m_ResolvedPackages:
     - 4.0.0
     - 4.0.1
     - 4.0.2
+    - 4.0.3
     - 5.0.0-pre.1
     - 5.0.0
     - 5.1.0-pre.1
     - 5.1.0
+    - 5.1.1
     compatible:
     - 4.0.2
-    recommended: 4.0.2
+    - 4.0.3
+    recommended: 4.0.3
     deprecated: []
   dependencies:
   - name: com.unity.timeline
@@ -537,9 +555,9 @@ m_ResolvedPackages:
   resolvedDependencies:
   - name: com.unity.timeline
     version: 1.7.6
-  - name: com.unity.modules.director
-    version: 1.0.0
   - name: com.unity.modules.audio
+    version: 1.0.0
+  - name: com.unity.modules.director
     version: 1.0.0
   - name: com.unity.modules.animation
     version: 1.0.0
@@ -793,6 +811,8 @@ m_ResolvedPackages:
     - 1.4.1
     - 1.4.2
     - 1.4.3
+    - 1.4.4
+    - 1.4.5
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -812,6 +832,8 @@ m_ResolvedPackages:
     - 1.4.1
     - 1.4.2
     - 1.4.3
+    - 1.4.4
+    - 1.4.5
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -861,12 +883,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.textmeshpro@3.0.6
+- packageId: com.unity.textmeshpro@3.0.9
   testable: 0
   isDirectDependency: 1
-  version: 3.0.6
+  version: 3.0.9
   source: 1
-  resolvedPath: F:\repos\platformer\2D Platformer\Library\PackageCache\com.unity.textmeshpro@3.0.6
+  resolvedPath: F:\repos\platformer\2D Platformer\Library\PackageCache\com.unity.textmeshpro@3.0.9
   assetPath: Packages/com.unity.textmeshpro
   name: com.unity.textmeshpro
   displayName: TextMeshPro
@@ -875,7 +897,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: Text Rendering
-  type: asset
+  type: assets
   description: 'TextMeshPro is the ultimate text solution for Unity. It''s the perfect
     replacement for Unity''s UI Text and the legacy Text Mesh.
 
@@ -982,6 +1004,7 @@ m_ResolvedPackages:
     - 3.0.6
     - 3.0.7
     - 3.0.8
+    - 3.0.9
     - 3.2.0-pre.1
     - 3.2.0-pre.2
     - 3.2.0-pre.3
@@ -991,12 +1014,14 @@ m_ResolvedPackages:
     - 3.2.0-pre.7
     - 3.2.0-pre.8
     - 3.2.0-pre.9
+    - 3.2.0-pre.10
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     compatible:
     - 3.0.6
     - 3.0.7
     - 3.0.8
+    - 3.0.9
     - 3.2.0-pre.1
     - 3.2.0-pre.2
     - 3.2.0-pre.3
@@ -1006,9 +1031,10 @@ m_ResolvedPackages:
     - 3.2.0-pre.7
     - 3.2.0-pre.8
     - 3.2.0-pre.9
+    - 3.2.0-pre.10
     - 4.0.0-pre.1
     - 4.0.0-pre.2
-    recommended: 3.0.8
+    recommended: 3.0.9
     deprecated: []
   dependencies:
   - name: com.unity.ugui
@@ -1036,13 +1062,13 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 637547111200000000
-  documentationUrl: 
+  datePublishedTicks: 638515173480000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.0/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.textmeshpro.git
-    revision: 01e57e3b7de18af9dfe9baaa0a0ff5cc4765c899
+    revision: 0af193626b4f76795f7cb6c9b0f55389d0e4b1d6
     path: 
   unityLifecycle:
     version: 3.0.6
@@ -1158,6 +1184,7 @@ m_ResolvedPackages:
     - 1.8.4
     - 1.8.5
     - 1.8.6
+    - 1.8.7
     compatible:
     - 1.7.6
     - 1.8.0
@@ -1167,21 +1194,22 @@ m_ResolvedPackages:
     - 1.8.4
     - 1.8.5
     - 1.8.6
+    - 1.8.7
     recommended: 1.7.6
     deprecated: []
   dependencies:
+  - name: com.unity.modules.audio
+    version: 1.0.0
   - name: com.unity.modules.director
     version: 1.0.0
   - name: com.unity.modules.animation
     version: 1.0.0
-  - name: com.unity.modules.audio
-    version: 1.0.0
   - name: com.unity.modules.particlesystem
     version: 1.0.0
   resolvedDependencies:
-  - name: com.unity.modules.director
-    version: 1.0.0
   - name: com.unity.modules.audio
+    version: 1.0.0
+  - name: com.unity.modules.director
     version: 1.0.0
   - name: com.unity.modules.animation
     version: 1.0.0
@@ -1245,6 +1273,7 @@ m_ResolvedPackages:
     - 1.0.0
     - 3.0.0-exp.1
     - 3.0.0-exp.3
+    - 3.0.0-exp.4
     compatible:
     - 1.0.0
     recommended: 1.0.0
@@ -1336,17 +1365,19 @@ m_ResolvedPackages:
     - 1.7.6
     - 1.7.7
     - 1.7.8
-    - 1.8.0-pre.1
     - 1.8.0
     - 1.9.0
     - 1.9.1
     - 1.9.2
+    - 1.9.4
+    - 1.9.5
     compatible:
     - 1.9.1
     - 1.9.2
-    recommended: 1.9.2
-    deprecated:
-    - 1.8.0-pre.1
+    - 1.9.4
+    - 1.9.5
+    recommended: 1.9.5
+    deprecated: []
   dependencies:
   - name: com.unity.ugui
     version: 1.0.0
@@ -3585,11 +3616,21 @@ m_ResolvedPackages:
     - 1.8.11
     - 1.8.12
     - 1.8.13
+    - 1.8.14
+    - 1.8.15
+    - 1.8.16
+    - 1.8.17
+    - 1.8.18
     compatible:
     - 1.8.11
     - 1.8.12
     - 1.8.13
-    recommended: 1.8.13
+    - 1.8.14
+    - 1.8.15
+    - 1.8.16
+    - 1.8.17
+    - 1.8.18
+    recommended: 1.8.18
     deprecated: []
   dependencies:
   - name: com.unity.mathematics
@@ -4166,6 +4207,8 @@ m_ResolvedPackages:
     - 7.0.12
     - 7.0.13
     - 7.1.0
+    - 7.1.1
+    - 7.1.2
     - 8.0.0-pre.3
     - 8.0.0-pre.4
     - 8.0.0
@@ -4182,6 +4225,9 @@ m_ResolvedPackages:
     - 9.0.3
     - 9.0.4
     - 9.1.0
+    - 9.1.1
+    - 9.1.2
+    - 9.1.3
     - 10.0.0-pre.1
     - 10.0.0-pre.2
     - 10.0.0
@@ -4190,9 +4236,15 @@ m_ResolvedPackages:
     - 10.0.3
     - 10.1.0
     - 10.1.1
+    - 10.1.2
+    - 10.1.3
+    - 10.1.4
     compatible:
     - 9.0.4
     - 9.1.0
+    - 9.1.1
+    - 9.1.2
+    - 9.1.3
     recommended: 9.0.4
     deprecated: []
   dependencies:
@@ -4209,10 +4261,14 @@ m_ResolvedPackages:
   resolvedDependencies:
   - name: com.unity.2d.common
     version: 8.0.2
-  - name: com.unity.2d.sprite
-    version: 1.0.0
+  - name: com.unity.burst
+    version: 1.8.11
   - name: com.unity.mathematics
     version: 1.2.6
+  - name: com.unity.2d.sprite
+    version: 1.0.0
+  - name: com.unity.modules.animation
+    version: 1.0.0
   - name: com.unity.modules.uielements
     version: 1.0.0
   - name: com.unity.modules.ui
@@ -4221,10 +4277,6 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
-  - name: com.unity.modules.animation
-    version: 1.0.0
-  - name: com.unity.burst
-    version: 1.8.11
   - name: com.unity.collections
     version: 1.2.4
   - name: com.unity.test-framework
@@ -4437,32 +4489,37 @@ m_ResolvedPackages:
     - 8.0.2
     - 8.0.3
     - 8.0.4
+    - 8.0.5
     - 9.0.0-pre.1
     - 9.0.0-pre.2
     - 9.0.0
     - 9.0.1
     - 9.0.2
+    - 9.0.3
     compatible:
     - 8.0.3
     - 8.0.4
-    recommended: 8.0.4
+    - 8.0.5
+    recommended: 8.0.5
     deprecated: []
   dependencies:
-  - name: com.unity.2d.animation
-    version: 9.0.4
   - name: com.unity.2d.common
     version: 8.0.2
   - name: com.unity.2d.sprite
     version: 1.0.0
+  - name: com.unity.2d.animation
+    version: 9.0.4
   resolvedDependencies:
-  - name: com.unity.2d.animation
-    version: 9.0.4
   - name: com.unity.2d.common
     version: 8.0.2
-  - name: com.unity.2d.sprite
-    version: 1.0.0
+  - name: com.unity.burst
+    version: 1.8.11
   - name: com.unity.mathematics
     version: 1.2.6
+  - name: com.unity.2d.sprite
+    version: 1.0.0
+  - name: com.unity.modules.animation
+    version: 1.0.0
   - name: com.unity.modules.uielements
     version: 1.0.0
   - name: com.unity.modules.ui
@@ -4471,10 +4528,8 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
-  - name: com.unity.modules.animation
-    version: 1.0.0
-  - name: com.unity.burst
-    version: 1.8.11
+  - name: com.unity.2d.animation
+    version: 9.0.4
   - name: com.unity.collections
     version: 1.2.4
   - name: com.unity.test-framework
@@ -4668,29 +4723,43 @@ m_ResolvedPackages:
     - 9.0.0
     - 9.0.1
     - 9.0.2
+    - 9.0.3
+    - 9.0.4
+    - 9.0.5
     - 10.0.0-pre.1
     - 10.0.0-pre.2
     - 10.0.0
     - 10.0.1
     - 10.0.2
     - 10.0.3
+    - 10.0.4
+    - 10.0.5
+    - 10.0.6
+    - 10.0.7
     compatible:
     - 9.0.2
-    recommended: 9.0.2
+    - 9.0.3
+    - 9.0.4
+    - 9.0.5
+    recommended: 9.0.5
     deprecated: []
   dependencies:
-  - name: com.unity.mathematics
-    version: 1.1.0
   - name: com.unity.2d.common
     version: 8.0.1
+  - name: com.unity.mathematics
+    version: 1.1.0
   - name: com.unity.modules.physics2d
     version: 1.0.0
   resolvedDependencies:
-  - name: com.unity.mathematics
-    version: 1.2.6
   - name: com.unity.2d.common
     version: 8.0.2
+  - name: com.unity.burst
+    version: 1.8.11
+  - name: com.unity.mathematics
+    version: 1.2.6
   - name: com.unity.2d.sprite
+    version: 1.0.0
+  - name: com.unity.modules.animation
     version: 1.0.0
   - name: com.unity.modules.uielements
     version: 1.0.0
@@ -4700,10 +4769,6 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
-  - name: com.unity.modules.animation
-    version: 1.0.0
-  - name: com.unity.burst
-    version: 1.8.11
   - name: com.unity.modules.physics2d
     version: 1.0.0
   keywords:
@@ -4869,6 +4934,7 @@ m_ResolvedPackages:
     - 2.2.5
     - 2.2.6
     - 2.2.7
+    - 2.2.8
     - 3.0.0
     - 3.0.1
     - 3.0.2
@@ -4876,41 +4942,44 @@ m_ResolvedPackages:
     - 3.1.0
     - 3.1.1
     - 3.1.2
+    - 3.1.3
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     - 4.0.0-pre.3
     - 4.0.0
     - 4.0.1
     - 4.0.2
+    - 4.1.0
     compatible:
     - 3.1.2
-    recommended: 3.1.2
+    - 3.1.3
+    recommended: 3.1.3
     deprecated: []
   dependencies:
-  - name: com.unity.modules.tilemap
+  - name: com.unity.ugui
     version: 1.0.0
   - name: com.unity.2d.tilemap
     version: 1.0.0
-  - name: com.unity.ugui
+  - name: com.unity.modules.tilemap
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
   resolvedDependencies:
-  - name: com.unity.modules.tilemap
-    version: 1.0.0
-  - name: com.unity.modules.physics2d
-    version: 1.0.0
-  - name: com.unity.2d.tilemap
-    version: 1.0.0
-  - name: com.unity.modules.uielements
+  - name: com.unity.ugui
     version: 1.0.0
   - name: com.unity.modules.ui
     version: 1.0.0
   - name: com.unity.modules.imgui
     version: 1.0.0
-  - name: com.unity.modules.jsonserialize
+  - name: com.unity.2d.tilemap
     version: 1.0.0
-  - name: com.unity.ugui
+  - name: com.unity.modules.tilemap
+    version: 1.0.0
+  - name: com.unity.modules.physics2d
+    version: 1.0.0
+  - name: com.unity.modules.uielements
+    version: 1.0.0
+  - name: com.unity.modules.jsonserialize
     version: 1.0.0
   keywords:
   - 2d
@@ -4970,29 +5039,43 @@ m_ResolvedPackages:
     - 1.1.0
     - 1.1.1
     - 1.1.2
+    - 1.1.3
+    - 1.1.4
+    - 1.1.5
+    - 1.1.6
+    - 1.1.7
     compatible:
     - 1.0.1
     - 1.1.0
     - 1.1.1
     - 1.1.2
+    - 1.1.3
+    - 1.1.4
+    - 1.1.5
+    - 1.1.6
+    - 1.1.7
     recommended: 1.0.1
     deprecated: []
   dependencies:
-  - name: com.unity.2d.sprite
-    version: 1.0.0
   - name: com.unity.2d.common
     version: 6.0.6
+  - name: com.unity.2d.sprite
+    version: 1.0.0
   - name: com.unity.mathematics
     version: 1.2.6
   - name: com.unity.modules.animation
     version: 1.0.0
   resolvedDependencies:
-  - name: com.unity.2d.sprite
-    version: 1.0.0
   - name: com.unity.2d.common
     version: 8.0.2
+  - name: com.unity.burst
+    version: 1.8.11
   - name: com.unity.mathematics
     version: 1.2.6
+  - name: com.unity.2d.sprite
+    version: 1.0.0
+  - name: com.unity.modules.animation
+    version: 1.0.0
   - name: com.unity.modules.uielements
     version: 1.0.0
   - name: com.unity.modules.ui
@@ -5001,10 +5084,6 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
-  - name: com.unity.modules.animation
-    version: 1.0.0
-  - name: com.unity.burst
-    version: 1.8.11
   keywords:
   - 2d
   - Aseprite
@@ -5166,6 +5245,7 @@ m_ResolvedPackages:
     - 6.0.5
     - 6.0.6
     - 6.0.7
+    - 6.0.8
     - 7.0.0-pre.3
     - 7.0.0-pre.4
     - 7.0.0
@@ -5177,6 +5257,8 @@ m_ResolvedPackages:
     - 8.0.0
     - 8.0.1
     - 8.0.2
+    - 8.0.3
+    - 8.0.4
     - 9.0.0-pre.1
     - 9.0.0-pre.2
     - 9.0.0
@@ -5184,26 +5266,35 @@ m_ResolvedPackages:
     - 9.0.2
     - 9.0.3
     - 9.0.4
+    - 9.0.5
+    - 9.0.6
+    - 9.0.7
     compatible:
     - 8.0.2
-    recommended: 8.0.2
+    - 8.0.3
+    - 8.0.4
+    recommended: 8.0.4
     deprecated: []
   dependencies:
+  - name: com.unity.burst
+    version: 1.7.3
   - name: com.unity.2d.sprite
     version: 1.0.0
   - name: com.unity.mathematics
     version: 1.1.0
+  - name: com.unity.modules.animation
+    version: 1.0.0
   - name: com.unity.modules.uielements
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.burst
+    version: 1.8.11
+  - name: com.unity.mathematics
+    version: 1.2.6
+  - name: com.unity.2d.sprite
     version: 1.0.0
   - name: com.unity.modules.animation
     version: 1.0.0
-  - name: com.unity.burst
-    version: 1.7.3
-  resolvedDependencies:
-  - name: com.unity.2d.sprite
-    version: 1.0.0
-  - name: com.unity.mathematics
-    version: 1.2.6
   - name: com.unity.modules.uielements
     version: 1.0.0
   - name: com.unity.modules.ui
@@ -5212,10 +5303,6 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
-  - name: com.unity.modules.animation
-    version: 1.0.0
-  - name: com.unity.burst
-    version: 1.8.11
   keywords:
   - 2d
   registry:
@@ -5328,6 +5415,13 @@ m_ResolvedPackages:
     - 2.4.0-exp.2
     - 2.4.0-pre.2
     - 2.4.0-pre.5
+    - 2.4.0
+    - 2.4.1
+    - 2.4.2
+    - 2.4.3
+    - 2.5.0-exp.1
+    - 2.5.0-pre.2
+    - 2.5.1
     compatible:
     - 1.2.4
     - 1.3.1
@@ -5347,6 +5441,13 @@ m_ResolvedPackages:
     - 2.4.0-exp.2
     - 2.4.0-pre.2
     - 2.4.0-pre.5
+    - 2.4.0
+    - 2.4.1
+    - 2.4.2
+    - 2.4.3
+    - 2.5.0-exp.1
+    - 2.5.0-pre.2
+    - 2.5.1
     recommended: 1.2.4
     deprecated: []
   dependencies:
